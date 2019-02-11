@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/CircularQueue.hpp
+
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/DynamicStack.hpp
+
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/Lab2Tests.hpp
+DynamicStack.hpp
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/DynamicStack.hpp
+CircularQueue.hpp
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/CircularQueue.hpp
+
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/main.cpp
+iostream
+-
+string
+-
+Lab2Tests.hpp
+/cygdrive/c/Users/joshz/OneDrive - University of Waterloo/1B/Algorithms and Data Structures/Labs/Lab_2/Lab_2_Stacks_and_Queues/Lab2Tests.hpp
+
