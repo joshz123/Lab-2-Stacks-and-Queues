@@ -49,7 +49,7 @@ bool CircularQueue::enqueue(QueueItem value)
     if(size_==capacity_) //todo check if i need a condition for front%size==rear for full
         return false;
 
-    else if (head_==-1){
+    else if (size_==0){
         head_ = 0;
         tail_ = 1;
         items_[head_] = value;
@@ -75,14 +75,14 @@ bool CircularQueue::enqueue(QueueItem value)
 
 }
 
-QueueItem CircularQueue::dequeue()
+QueueItem CircularQueue::dequeue() //todo check what happens in case head == tail-1 do they both get reset? you dont want head to pass tail
 {
     if(size_==0)
         return EMPTY_QUEUE;
 
     if(head_==size_-1){
         int temp = items_[head_];
-        items_[head_] == -1;
+        items_[head_] = -1;
         head_ =0;
         size_--;
         return temp;
@@ -90,8 +90,7 @@ QueueItem CircularQueue::dequeue()
     else if(size_==1){
         int temp = items_[head_];
         size_--;
-        head_=-1;
-        tail_=-1;
+        head_++;
         return temp;
     }
     else {
@@ -105,7 +104,7 @@ QueueItem CircularQueue::dequeue()
 
 QueueItem CircularQueue::peek() const
 {
-    return size_ == 0 ? items_[head_] : EMPTY_QUEUE;
+    return size_ != 0 ? items_[head_] : EMPTY_QUEUE;
 }
 
 void CircularQueue::print() const
