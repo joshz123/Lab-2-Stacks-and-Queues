@@ -97,6 +97,31 @@ public:
         ASSERT_TRUE((queue.tail_ == 1) || (queue.tail_ == 2))
         return true;
     }
+    bool test4(){
+        CircularQueue queue;
+        for(int ind =0; ind <= queue.capacity_; ind++){
+            queue.enqueue(ind);
+        }
+        ASSERT_TRUE(queue.peek() == 0)
+        //queue.print(); // double check that this shows 0 ->15
+        ASSERT_TRUE(queue.enqueue(5) == false)
+        ASSERT_TRUE(queue.dequeue() == 0)
+        ASSERT_TRUE(queue.peek() ==1)
+        ASSERT_TRUE(queue.enqueue(16) == true)
+        //  queue.print(); //double check that this shows 1 -> 16
+        ASSERT_TRUE(queue.enqueue(17) == false)
+        ASSERT_TRUE(queue.dequeue() == 1)
+        ASSERT_TRUE(queue.enqueue(17) == true)
+        for (int ind =2; ind < queue.capacity_ + 2; ind++){
+            ASSERT_TRUE(queue.dequeue() == ind)
+
+        }
+
+        return true;
+
+
+
+    }
 
 };
 
