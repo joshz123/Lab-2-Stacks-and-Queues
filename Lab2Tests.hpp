@@ -16,6 +16,7 @@ public:
         ASSERT_TRUE(default_size_stack.empty() == true)
         ASSERT_TRUE(default_size_stack.size() == 0)
 
+
         DynamicStack stack(size);
         ASSERT_TRUE(stack.empty() == true)
         ASSERT_TRUE(stack.size() == 0)
@@ -43,6 +44,7 @@ public:
         ASSERT_TRUE(stack.pop() == DynamicStack::EMPTY_STACK)
         ASSERT_TRUE(stack.peek() == DynamicStack::EMPTY_STACK)
         return true;
+
     }
 
 };
