@@ -8,7 +8,6 @@ DynamicStack::DynamicStack()
     capacity_ = 16;
     size_=0;
     init_capacity_ =16;
-    capacity_ = 16;
 }
 
 DynamicStack::DynamicStack(unsigned int capacity)
@@ -37,8 +36,13 @@ int DynamicStack::size() const
 
 void DynamicStack::push(StackItem value)
 {
-    if(capacity_-size_>=1){
+    if(size_==capacity_){
+        capacity_*=2;
         //todo Should pointers or arrays be used. should i just move all items in the stack?
+        StackItem* temp = new StackItem(capacity_);
+        for (int i = 0; i < size_; i++)
+            temp[i] = items_[i];
+        delete[] items_;
     }
 
 }
