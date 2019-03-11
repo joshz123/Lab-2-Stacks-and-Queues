@@ -20,7 +20,7 @@ public:
 
       DynamicStack stack(size);
       ASSERT_TRUE(stack.empty() == true)
-      ASSERT_TRUE(stack.size() == 0)    
+      ASSERT_TRUE(stack.size() == 0)
       return true;
     }
 
@@ -29,10 +29,10 @@ public:
       DynamicStack stack;
       stack.push(10);
       ASSERT_TRUE(stack.empty() == false)
-      ASSERT_TRUE(stack.size() == 1)       
+      ASSERT_TRUE(stack.size() == 1)
       ASSERT_TRUE(stack.pop() == 10);
       ASSERT_TRUE(stack.empty() == true)
-      ASSERT_TRUE(stack.size() == 0)     
+      ASSERT_TRUE(stack.size() == 0)
       return true;
     }
 
@@ -41,9 +41,9 @@ public:
       DynamicStack stack(24);
       stack.push(10);
       stack.push(20);
-      ASSERT_TRUE(stack.peek() == 20)     
+      ASSERT_TRUE(stack.peek() == 20)
       ASSERT_TRUE(stack.pop() == 20)
-      ASSERT_TRUE(stack.pop() == 10)     
+      ASSERT_TRUE(stack.pop() == 10)
       ASSERT_TRUE(stack.pop() == DynamicStack::EMPTY_STACK)
       ASSERT_TRUE(stack.peek() == DynamicStack::EMPTY_STACK)
       return true;
