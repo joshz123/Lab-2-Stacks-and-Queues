@@ -17,7 +17,7 @@ DynamicStack::DynamicStack(unsigned int capacity) {
     items_ = new StackItem[capacity];
     size_ = 0;
     init_capacity_ = capacity;
-    capacity_ = capacity;
+    capacity_ = capacity == 0 ? 16 : capacity;
 
 }
 
@@ -37,7 +37,7 @@ void DynamicStack::push(StackItem value) {
     if (size_ == capacity_) {
         capacity_ *= 2;
         //todo Should pointers or arrays be used. should i just move all items in the stack?
-        StackItem *temp = new StackItem[capacity_]; //todo cehck if these are round or square brackets
+        StackItem *temp = new StackItem[capacity_]; //todo check if these are round or square brackets
         for (int i = 0; i < size_; i++)
             temp[i] = items_[i];
 
@@ -58,9 +58,9 @@ StackItem DynamicStack::pop() {
     if (size_ == 0)
         return EMPTY_STACK;
     else {
-        StackItem popped = items_[size_-1];
+        StackItem popped = items_[size_ - 1];
 
-        if (size_ <= capacity_ / 4&&capacity_/4>init_capacity_) {
+        if (size_ <= capacity_ / 4 && capacity_ / 4 > init_capacity_) {
             capacity_ /= 2;
             auto *temp = new StackItem[capacity_];
             items_ = temp;
