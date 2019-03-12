@@ -4,9 +4,10 @@
 #define ASSERT_TRUE(T) if (!(T)) return false;
 #define ASSERT_FALSE(T) if ((T)) return false;
 
+#include <iostream>
 #include "DynamicStack.hpp"
 #include "CircularQueue.hpp"
-
+using namespace std;
 class DynamicStackTest {
 public:
     bool test1() {
@@ -15,7 +16,6 @@ public:
         DynamicStack default_size_stack;
         ASSERT_TRUE(default_size_stack.empty() == true)
         ASSERT_TRUE(default_size_stack.size() == 0)
-
 
         DynamicStack stack(size);
         ASSERT_TRUE(stack.empty() == true)
@@ -44,37 +44,38 @@ public:
         ASSERT_TRUE(stack.pop() == DynamicStack::EMPTY_STACK)
         ASSERT_TRUE(stack.peek() == DynamicStack::EMPTY_STACK)
         return true;
-
     }
+
     bool test4() {
         DynamicStack stack;
-        ASSERT_TRUE(stack.pop()==DynamicStack::EMPTY_STACK)
+        ASSERT_TRUE(stack.pop() == DynamicStack::EMPTY_STACK)
         return true;
     }
+
     bool test5() {
         DynamicStack stack(24);
         stack.push(10);
         stack.push(20);
         stack.push(30);
-        ASSERT_TRUE(stack.pop()==30)
-        ASSERT_TRUE(stack.pop()==20)
-        ASSERT_TRUE(stack.pop()==10)
+        ASSERT_TRUE(stack.pop() == 30)
+        ASSERT_TRUE(stack.pop() == 20)
+        ASSERT_TRUE(stack.pop() == 10)
         return true;
     }
+
     bool test6() {
         DynamicStack stack(24);
         stack.push(10);
         stack.push(20);
         stack.push(30);
-        ASSERT_TRUE(stack.pop()==30)
-        ASSERT_TRUE(stack.pop()==20)
-        ASSERT_TRUE(stack.pop()==10)
-        ASSERT_TRUE(stack.pop()==DynamicStack::EMPTY_STACK)
+        ASSERT_TRUE(stack.pop() == 30)
+        ASSERT_TRUE(stack.pop() == 20)
+        ASSERT_TRUE(stack.pop() == 10)
+        ASSERT_TRUE(stack.pop() == DynamicStack::EMPTY_STACK)
         return true;
-        
+
     }
-    
-    
+
 
 };
 
@@ -126,22 +127,23 @@ public:
         ASSERT_TRUE((queue.tail_ == 1) || (queue.tail_ == 2))
         return true;
     }
-    bool test4(){
+
+    bool test4() {
         CircularQueue queue;
-        for(int ind =0; ind <= queue.capacity_; ind++){
+        for (int ind = 0; ind <= queue.capacity_; ind++) {
             queue.enqueue(ind);
         }
         ASSERT_TRUE(queue.peek() == 0)
         //queue.print(); // double check that this shows 0 ->15
         ASSERT_TRUE(queue.enqueue(5) == false)
         ASSERT_TRUE(queue.dequeue() == 0)
-        ASSERT_TRUE(queue.peek() ==1)
+        ASSERT_TRUE(queue.peek() == 1)
         ASSERT_TRUE(queue.enqueue(16) == true)
         //  queue.print(); //double check that this shows 1 -> 16
         ASSERT_TRUE(queue.enqueue(17) == false)
         ASSERT_TRUE(queue.dequeue() == 1)
         ASSERT_TRUE(queue.enqueue(17) == true)
-        for (int ind =2; ind < queue.capacity_ + 2; ind++){
+        for (int ind = 2; ind < queue.capacity_ + 2; ind++) {
             ASSERT_TRUE(queue.dequeue() == ind)
 
         }
@@ -149,7 +151,42 @@ public:
         return true;
 
 
+    }
 
+    bool test5() {
+        CircularQueue QEY;
+        for (int i = 0; i < 16; i++) {
+            ASSERT_TRUE(QEY.enqueue(i))
+            ASSERT_TRUE(QEY.size_ = i +1)
+
+        }
+
+        QEY.print();
+        ASSERT_TRUE(QEY.full())
+        ASSERT_FALSE(QEY.enqueue(3))
+
+        for (int i = 0; i < 16; i++) {
+            ASSERT_TRUE(QEY.peek()==i)
+            ASSERT_TRUE(QEY.dequeue() == i);
+            ASSERT_TRUE(QEY.size() == QEY.size_)
+            //cout<<"size: "<<QEY.size_<<" index: "<<15-i<<endl;
+            ASSERT_TRUE(QEY.size_ == 15-i)
+
+
+        }
+
+
+        ASSERT_TRUE(QEY.peek() == CircularQueue::EMPTY_QUEUE)
+        ASSERT_TRUE(QEY.dequeue() == CircularQueue::EMPTY_QUEUE)
+        ASSERT_TRUE(QEY.size_ == 0)
+        ASSERT_TRUE(QEY.empty())
+    
+
+        DynamicStack A;
+
+
+
+        return true;
     }
 
 };

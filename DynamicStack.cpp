@@ -40,18 +40,14 @@ void DynamicStack::push(StackItem value) {
         StackItem *temp = new StackItem[capacity_]; //todo check if these are round or square brackets
         for (int i = 0; i < size_; i++)
             temp[i] = items_[i];
-
+        delete[] items_;
         items_ = temp;
         items_[size_] = value;
         size_++;
-
-
     } else {
         items_[size_] = value;
         size_++;
     }
-
-
 }
 
 StackItem DynamicStack::pop() {
@@ -60,17 +56,17 @@ StackItem DynamicStack::pop() {
     else {
         StackItem popped = items_[size_ - 1];
 
-        if (size_ <= capacity_ / 4 && capacity_ / 4 > init_capacity_) {
+        if (size_ <= capacity_ / 4 && capacity_ / 2 > init_capacity_) {
             capacity_ /= 2;
-            auto *temp = new StackItem[capacity_];
+            StackItem *temp = new StackItem[capacity_];
+            for (int index = 0; index < capacity_; index++)
+                temp[index] = items_[index];
             items_ = temp;
         }
         size_--;//todo should this be here
         return popped;
 
     }
-
-
 }
 
 StackItem DynamicStack::peek() const {
