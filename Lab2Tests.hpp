@@ -68,6 +68,7 @@ public:
         stack.push(10);
         stack.push(20);
         stack.push(30);
+        stack.print();
         ASSERT_TRUE(stack.pop() == 30)
         ASSERT_TRUE(stack.pop() == 20)
         ASSERT_TRUE(stack.pop() == 10)
@@ -180,7 +181,7 @@ public:
         ASSERT_TRUE(QEY.dequeue() == CircularQueue::EMPTY_QUEUE)
         ASSERT_TRUE(QEY.size_ == 0)
         ASSERT_TRUE(QEY.empty())
-    
+
 
         DynamicStack A;
 

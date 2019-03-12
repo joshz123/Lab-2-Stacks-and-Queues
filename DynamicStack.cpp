@@ -14,10 +14,11 @@ DynamicStack::DynamicStack() {
 }
 
 DynamicStack::DynamicStack(unsigned int capacity) {
+    capacity = capacity == 0 ? 16 : capacity;
     items_ = new StackItem[capacity];
     size_ = 0;
     init_capacity_ = capacity;
-    capacity_ = capacity == 0 ? 16 : capacity;
+    capacity_ = capacity;
 
 }
 
@@ -59,6 +60,7 @@ StackItem DynamicStack::pop() {
         if (size_ <= capacity_ / 4 && capacity_ / 2 > init_capacity_) {
             capacity_ /= 2;
             StackItem *temp = new StackItem[capacity_];
+            delete[] items_;
             for (int index = 0; index < capacity_; index++)
                 temp[index] = items_[index];
             items_ = temp;
@@ -78,6 +80,6 @@ StackItem DynamicStack::peek() const {
 }
 
 void DynamicStack::print() const {
-    for (int i = 0; i < size_; i++)
-        cout << items_[i] << "\t";
+    for (int i = size_-1; i>0; i--)
+        cout << items_[i] << endl;
 }
