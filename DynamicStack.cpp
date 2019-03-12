@@ -85,3 +85,117 @@ void DynamicStack::print() const {
     for (int i = 0; i < size_; i++)
         cout << items_[i] << "\t";
 }
+/*
+ int main()
+{
+    StackItem s(10); //test  1
+    
+}
+*/
+
+/*
+ int main()
+ {
+ StackItem s(10); //test 2
+ s.push(1);
+ s.peek();
+ s.pop();
+ s.peek();
+ 
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 3
+ s.push(1);
+ s.push(2);
+ s.push(3);
+ s.push(4);
+ s.push(5);
+ s.push(6);
+ s.push(7);
+ s.push(8);
+ s.push(9);
+ s.push(10);
+ cout<<s.size();
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 4
+ s.push(1);
+ s.push(2);
+ s.push(3);
+ s.push(4);
+ s.push(5);
+ s.push(6);
+ s.push(7);
+ s.push(8);
+ s.push(9);
+ s.push(10);
+ s.push(11);
+ }
+ */
+/*
+ int main()
+{
+    StackItem s(10); //test 5
+    s.pop();
+}
+*/
+/*
+ int main()
+ {
+ StackItem s(10); //test 6
+ s.push(1);
+ s.push(2);
+ s.push(3);
+ s.print();
+ s.push(4);
+ s.push(5);
+ s.print();
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 8
+ s.push(1);
+ s.push(2);
+ s.push(3);
+ s.pop();
+ s.pop();
+ s.pop();
+ s.pop();
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 9
+ s.push(1);
+ s.push(2);
+ s.push(3);
+ s.pop();
+ s.pop();
+ s.pop();
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 10
+ s.push('hello');
+ }
+ */
+/*
+ int main()
+ {
+ StackItem s(10); //test 11
+ s.print();
+ }
+ */
+
+
