@@ -46,6 +46,35 @@ public:
         return true;
 
     }
+    bool test4() {
+        DynamicStack stack;
+        ASSERT_TRUE(stack.pop()==DynamicStack::EMPTY_STACK)
+        return true;
+    }
+    bool test5() {
+        DynamicStack stack(24);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        ASSERT_TRUE(stack.pop()==30)
+        ASSERT_TRUE(stack.pop()==20)
+        ASSERT_TRUE(stack.pop()==10)
+        return true;
+    }
+    bool test6() {
+        DynamicStack stack(24);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        ASSERT_TRUE(stack.pop()==30)
+        ASSERT_TRUE(stack.pop()==20)
+        ASSERT_TRUE(stack.pop()==10)
+        ASSERT_TRUE(stack.pop()==DynamicStack::EMPTY_STACK)
+        return true;
+        
+    }
+    
+    
 
 };
 
