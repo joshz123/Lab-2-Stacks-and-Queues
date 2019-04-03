@@ -102,7 +102,7 @@ QueueItem CircularQueue::dequeue() //todo check what happens in case head == tai
         return temp;
     }
 }
-//test
+//testies
 QueueItem CircularQueue::peek() const
 {
     return size_ != 0 ? items_[head_] : EMPTY_QUEUE;
