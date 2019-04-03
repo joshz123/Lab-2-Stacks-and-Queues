@@ -14,7 +14,7 @@ DynamicStack::DynamicStack() {
 }
 
 DynamicStack::DynamicStack(unsigned int capacity) {
-    items_ = new StackItem[capacity];
+    items_ = new StackItem[capacity]; //todo does not account for the capacity = 0 case
     size_ = 0;
     init_capacity_ = capacity;
     capacity_ = capacity;
@@ -43,7 +43,7 @@ void DynamicStack::push(StackItem value) {
 
         items_ = temp;
         items_[size_] = value;
-        size_++;
+        size_++; //todo does a delete need to be added
 
 
     } else {
@@ -60,13 +60,13 @@ StackItem DynamicStack::pop() {
     else {
         StackItem popped = items_[size_-1];
 
-        if (size_ <= capacity_ / 4&&capacity_/4>init_capacity_) {
+        if (size_ <= capacity_ / 4 &&capacity_/4>init_capacity_) { //todo if it is less than initial should it just be set to initial capacity
             capacity_ /= 2;
             auto *temp = new StackItem[capacity_];
-            items_ = temp;
+            items_ = temp; //todo this is not a deep copy
         }
         size_--;//todo should this be here
-        return popped;
+        return popped; //todo items at size-1 is not set to 0
 
     }
 
